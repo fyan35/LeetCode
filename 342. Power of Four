@@ -1,0 +1,26 @@
+/**
+ * Recursion
+ */
+
+public class Solution {
+    public boolean isPowerOfFour(int num) {
+        if (num == 1) return true;
+        if (num > 1 && num%4 == 0) return isPowerOfFour(num/4);
+        return false;
+    }
+}
+
+/**
+ * For the numbers with power of 2
+ * False values: 2--10, 8--1000
+ * True values: 4--100, 16--10000
+ * 0x55555555 - 01010101...
+ * 01 & 10 == 0; 0101 & 1000 == 0
+ * 101 & 100 == 100; 10101 & 10000 = 10000
+ */
+
+public class Solution {
+    public boolean isPowerOfFour(int num) {
+        return ((num>0) && ((num & (num-1)) == 0) && ((num & 0x55555555) != 0));
+    }
+}
