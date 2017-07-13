@@ -1,0 +1,51 @@
+
+/**
+ * Method 1 - 用n一直除2，看是否余数为0且最后得1
+ */
+public class Solution {
+    public boolean isPowerOfTwo(int n) {
+        if (n <= 0) return false;
+        while (n >= 2) {
+            if (n % 2 != 0) {
+                return false;
+            }
+            n /= 2;
+        }
+        return n == 1;
+    }
+}
+
+/**
+ * Method 2 - 判断n与n-1相与后的结果是否为0，为0就表示n的二进制表示中只有一个1，否则有多个1
+ */
+public class Solution {
+    public boolean isPowerOfTwo(int n) {
+        return (n>0) && ((n & (n-1)) == 0);
+    }
+}
+
+/**
+ * Method 3 - 递归
+ */
+public class Solution {
+    public boolean isPowerOfTwo(int n) {
+        if (n == 1) return true;
+        if (n >= 2 && n%2 ==0) return isPowerOfTwo(n/2);
+        return false;
+    }
+}
+
+/**
+ * Method 4 - 数二进制n中是否只有一个1
+ */
+public class Solution {
+    public boolean isPowerOfTwo(int n) {
+        if (n <= 0) return false;
+        int cnt = 0;
+        while (n > 0) {
+            cnt += (n & 1);
+            n >>= 1;
+        }
+        return cnt == 1;
+    }
+}
