@@ -1,0 +1,34 @@
+/**
+ * Recursion
+ */
+
+public class Solution {
+    public boolean isPowerOfThree(int n) {
+        if (n == 1) return true;
+        if (n>1 && n%3 ==0) return isPowerOfThree(n/3);
+        return false;
+    }
+}
+
+/**
+ * maxPowerOfThree % powerOfThree == 0
+ */
+
+public class Solution {
+    public boolean isPowerOfThree(int n) {
+        int k = (int) (Math.log(Integer.MAX_VALUE)/Math.log(3));
+        int maxPow = (int) Math.pow(3, k);
+        return (n>0) && (maxPow%n == 0);
+    }
+}
+
+/**
+ * log3(n) should be int
+ * log10(n) / log3(n) should be int
+ */
+
+public class Solution {
+    public boolean isPowerOfThree(int n) {
+        return (n>0) && ((Math.log10(n)/Math.log10(3))%1 == 0);
+    }
+}
