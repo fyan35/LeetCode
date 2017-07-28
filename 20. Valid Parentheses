@@ -1,0 +1,22 @@
+public class Solution {
+    public boolean isValid(String s) {
+        if ((s.length() == 0) || (s.length()%2 != 0)) {
+            return false;
+        }
+        Stack<Character> strStack = new Stack<Character>();
+        for (int i=0; i<s.length(); i++) {
+            if (s.charAt(i) == '(' || s.charAt(i) =='[' || s.charAt(i) =='{') {
+                strStack.push(s.charAt(i));
+            }
+            else {
+                if (strStack.size() == 0) return false;
+                char top = strStack.pop();
+                if ((top == '(' && s.charAt(i) != ')') || (top == '[' && s.charAt(i) != ']') || (top == '{' && s.charAt(i) != '}')){
+                  return false;  
+                }
+            }
+        }
+        if (strStack.size() != 0) return false;
+        return true;
+    }
+}

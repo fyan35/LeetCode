@@ -1,0 +1,11 @@
+/**
+ *  n = 4的时候必输
+ * 当n%4 ！= 0的时候，每次只要取掉n除4的余数，就可以最后让对手面对n=4
+ * 
+ */
+
+public class Solution {
+    public boolean canWinNim(int n) {
+        return n%4 != 0;
+    }
+}
